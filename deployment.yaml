@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-calculator-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-calculator
+  template:
+    metadata:
+      labels:
+        app: simple-calculator
+    spec:
+      containers:
+      - name: simple-calculator
+        image: simple_calculator:latest
+        ports:
+        - containerPort: 5000
